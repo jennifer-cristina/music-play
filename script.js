@@ -1,7 +1,7 @@
 let musicas = [
-    {titulo:'Blue Dream', artista:'Patrick Patrikios', src:'msc/Blue Dream - Cheel.mp3', img:'img/clouds.jpg'},
-    {titulo:'Drown Me Out', artista:'VYEN', src:'msc/Drown Me Out - VYEN.mp3', img:'img/art.jpg'},
-    {titulo:'Sunset Dream', artista:'Cheel', src:'msc/Sunset Dream - Cheel.mp3', img:'img/forest.jpg'}
+    {titulo:'Blue Dream', artista:'Patrick Patrikios', src:'msc/birds.mpeg', img:'img/clouds.jpg'},
+    {titulo:'Drown Me Out', artista:'VYEN', src:'msc/always.mpeg', img:'img/art.jpg'},
+    {titulo:'Sunset Dream', artista:'Cheel', src:'msc/runaway.mpeg', img:'img/forest.jpg'}
 ];
 
 // Buscando cada classe do html
