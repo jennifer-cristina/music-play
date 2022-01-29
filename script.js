@@ -1,5 +1,5 @@
 let musicas = [
-    {titulo:'birds', artista:'Imagine Dragons', src:'msc/birds.mpeg', img:'img/clouds.jpg'},
+    {titulo:'Birds', artista:'Imagine Dragons', src:'msc/birds.mpeg', img:'img/clouds.jpg'},
     {titulo:'Always', artista:'Gavin James', src:'msc/always.mpeg', img:'img/art.jpg'},
     {titulo:'Runaway', artista:'Aurora', src:'msc/runaway.mpeg', img:'img/forest.jpg'}
 ];
