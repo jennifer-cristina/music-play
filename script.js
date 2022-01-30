@@ -1,7 +1,7 @@
 let musicas = [
-    {titulo:'Birds', artista:'Imagine Dragons', src:'msc/birds.mpeg', img:'img/clouds.jpg'},
-    {titulo:'Always', artista:'Gavin James', src:'msc/always.mpeg', img:'img/art.jpg'},
-    {titulo:'Runaway', artista:'Aurora', src:'msc/runaway.mpeg', img:'img/forest.jpg'}
+    {titulo:'Birds', artista:'Imagine Dragons', src:'msc/birds.mpeg', img: src='img/birds.jpg'},
+    {titulo:'Always', artista:'Gavin James', src:'msc/always.mpeg', img: src='img/always.jpg'},
+    {titulo:'Runaway', artista:'Aurora', src:'msc/runaway.mpeg', img: src='img/runaway.jpg'}
 ];
 
 // Buscando cada classe do html
@@ -9,7 +9,7 @@ let musica = document.querySelector('audio');
 let indexMusica = 0;
 
 let duracaoMusica = document.querySelector('.fim');
-let imagem = document.querySelector('img');
+let img = document.querySelector('img');
 let nomeMusica = document.querySelector('.descricao h2');
 let nomeArtista = document.querySelector('.descricao i');
 
@@ -28,7 +28,9 @@ document.querySelector('.anterior').addEventListener('click', () => {
     if (indexMusica < 0) {
         indexMusica = 2;
     }
+
     renderizarMusica(indexMusica);
+    tocarMusica();
 });
 
 document.querySelector('.proximo').addEventListener('click', () => {
@@ -38,9 +40,12 @@ document.querySelector('.proximo').addEventListener('click', () => {
         indexMusica = 0;
     }
     renderizarMusica(indexMusica);
+    tocarMusica();
 });
 
 // Funções
+
+
 function renderizarMusica(index){
     // estou substituindo o atributo src original da minha tag audio pelo atributo src que esta no array musicas
     musica.setAttribute('src', musicas[index].src);
@@ -48,7 +53,7 @@ function renderizarMusica(index){
     musica.addEventListener('loadeddata', () => {
         nomeMusica.textContent = musicas[index].titulo;
         nomeArtista.textContent = musicas[index].artista;
-        imagem.src = musicas[index].img;
+        img.src = musicas[index].img;
         duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
     });
 }
@@ -65,11 +70,20 @@ function pausarMusica(){
     document.querySelector('.botao-play').style.display = 'block';
 }
 
+function videoRodar(){
+    if(tocarMusica()){
+      video.play();
+      console.log('rodo');
+    }else
+      video.pause();
+  }
+
 function atualizarBarra(){
     let barra = document.querySelector('progress');
     barra.style.width = Math.floor((musica.currentTime / musica.duration) * 100) + '%';
     let tempoDecorrido = document.querySelector('.inicio');
     tempoDecorrido.textContent = segundosParaMinutos(Math.floor(musica.currentTime));
+    duracaoMusica.textContent = segundosParaMinutos(Math.floor(musica.duration));
 }
 
 function segundosParaMinutos(segundos){
